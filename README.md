@@ -5,9 +5,11 @@ It's just a test and this repository is not really useful.
 Requirements
 ============
 
-- Node.js 0.10.1
-- [Websocket-Node][1] library
+* Node.js 0.10.1
+* [Websocket-Node][1] library
 
-To install Websocket-Node library use npm.
+To install Websocket-Node library use npm:
+
+    $ npm install websocket
 
 [1]: https://github.com/Worlize/WebSocket-Node
