@@ -4,27 +4,20 @@
     <title>WebSocket Echo Client</title>
     <meta charset="UTF-8" />
     <script>
-        "use strict";
         // Initialize everything when the window finishes loading
         window.addEventListener("load", function(event) {
             var status = document.getElementById("status");
-            var url = document.getElementById("url");
             var open = document.getElementById("open");
             var close = document.getElementById("close");
-            var send = document.getElementById("send");
-            var text = document.getElementById("text");
             var message = document.getElementById("message");
             var socket;
 
             status.textContent = "Not Connected";
-            url.value = "ws://localhost:8080";
-            close.disabled = true;
-            send.disabled = true;
 
             // Create a new connection when the Connect button is clicked
             open.addEventListener("click", function(event) {
                 open.disabled = true;
-                socket = new WebSocket(url.value, "echo-protocol");
+                socket = new WebSocket("ws://localhost:8080", "echo-protocol");
 
                 socket.addEventListener("open", function(event) {
                     close.disabled = false;
@@ -55,22 +48,15 @@
                 message.textContent = "";
                 socket.close();
             });
-
-            // Send text to the server when the Send button is clicked
-            send.addEventListener("click", function(event) {
-                socket.send(text.value);
-                text.value = "";
-            });
         });
     </script>
 </head>
 <body>
-Status: <span id="status"></span><br />
-URL: <input id="url" /><br />
+<h1>Status: <span id="status"></span></h1>
 <input id="open" type="button" value="Connect" />&nbsp;
 <input id="close" type="button" value="Disconnect" /><br />
-<input id="send" type="button" value="Send" />&nbsp;
-<input id="text" /><br />
+<hr/>
+<h2>List of messages from server:</h2>
 <span id="message"></span>
 </body>
 </html>
