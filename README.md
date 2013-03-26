@@ -12,4 +12,11 @@ To install Websocket-Node library use npm:
 
     $ npm install websocket
 
+Tags
+====
+It is possibile to checkout these tags to alter the behaviour of node server:
+
+* echo-server
+* time-pusher
+
 [1]: https://github.com/Worlize/WebSocket-Node
